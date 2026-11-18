@@ -1,0 +1,7 @@
+#!/bin/bash
+# OpenOrbis PS4 clang wrapper
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+TOOLCHAIN="$(cd "$SCRIPT_DIR/../.." && pwd)"
+CLANG_BIN="/workspace/clang-local/usr/bin/clang-14"
+export LD_LIBRARY_PATH="/workspace/clang-local/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-}"
+exec "$CLANG_BIN" --target=x86_64-pc-freebsd12-elf -isysroot "$TOOLCHAIN" -isystem "$TOOLCHAIN/include" -isystem /usr/include -isystem /usr/include/x86_64-linux-gnu -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include "$@"
