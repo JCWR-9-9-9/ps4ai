@@ -64,6 +64,21 @@ export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT := 1
 # Object files
 OBJS := $(INTDIR)/main.o $(INTDIR)/ps4_stubs.o
 
+# SCE module directory (required by the PKG; holds system PRX modules).
+SCE_MODULE_DIR := sce_module
+SCE_MODULE_PRX := $(SCE_MODULE_DIR)/libc.prx $(SCE_MODULE_DIR)/libSceFios2.prx
+
+# Copy required system modules from the toolchain into sce_module/.
+$(SCE_MODULE_DIR)/libc.prx: | $(TOOLCHAIN)/src/modules/libc.prx
+	@mkdir -p $(SCE_MODULE_DIR)
+	@echo "Copying libc.prx into $(SCE_MODULE_DIR)..."
+	@cp $(TOOLCHAIN)/src/modules/libc.prx $@
+
+$(SCE_MODULE_DIR)/libSceFios2.prx: | $(TOOLCHAIN)/src/modules/libSceFios2.prx
+	@mkdir -p $(SCE_MODULE_DIR)
+	@echo "Copying libSceFios2.prx into $(SCE_MODULE_DIR)..."
+	@cp $(TOOLCHAIN)/src/modules/libSceFios2.prx $@
+
 .PHONY: all clean pkg
 
 all: $(CONTENT_ID).pkg
@@ -74,7 +89,7 @@ $(CONTENT_ID).pkg: pkg.gp4
 	@echo "Building PKG..."
 	$(PKGTOOL) pkg_build $< .
 
-pkg.gp4: eboot.bin sce_sys/param.sfo sce_sys/icon0.png
+pkg.gp4: eboot.bin sce_sys/param.sfo sce_sys/icon0.png $(SCE_MODULE_PRX)
 	@echo "Creating GP4 project..."
 	$(CREATEGP4) -out $@ --content-id=$(CONTENT_ID) --files "$^"
 
@@ -115,4 +130,4 @@ $(INTDIR):
 	mkdir -p $(INTDIR)
 
 clean:
-	rm -rf $(CONTENT_ID).pkg pkg.gp4 sce_sys eboot.bin $(INTDIR)
+	rm -rf $(CONTENT_ID).pkg pkg.gp4 sce_sys eboot.bin $(INTDIR) $(SCE_MODULE_DIR)
