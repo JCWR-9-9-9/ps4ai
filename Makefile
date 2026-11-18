@@ -89,9 +89,15 @@ $(CONTENT_ID).pkg: pkg.gp4
 	@echo "Building PKG..."
 	$(PKGTOOL) pkg_build $< .
 
-pkg.gp4: eboot.bin sce_sys/param.sfo sce_sys/icon0.png $(SCE_MODULE_PRX)
+pkg.gp4: eboot.bin sce_sys/param.sfo sce_sys/icon0.png sce_sys/about/right.sprx $(SCE_MODULE_PRX)
 	@echo "Creating GP4 project..."
 	$(CREATEGP4) -out $@ --content-id=$(CONTENT_ID) --files "$^"
+
+# Copy right.sprx into sce_sys/about/ (required by the PKG structure).
+sce_sys/about/right.sprx: | $(TOOLCHAIN)/src/modules/right.sprx
+	@mkdir -p sce_sys/about
+	@echo "Copying right.sprx into sce_sys/about/..."
+	@cp $(TOOLCHAIN)/src/modules/right.sprx $@
 
 sce_sys/param.sfo: Makefile
 	@mkdir -p sce_sys
