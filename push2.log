@@ -1,0 +1,7 @@
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File OpenOrbis/PS4Toolchain/bin/linux/PkgTool.Core is 74.46 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File clang-local/usr/lib/llvm-14/lib/libclang-cpp.so.14 is 56.09 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File OpenOrbis/PS4Toolchain/bin/macos/PkgTool.Core is 70.48 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/JCWR-9-9-9/ps4ai.git
+   5981595..e6ec1bd  main -> main

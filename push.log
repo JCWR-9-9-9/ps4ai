@@ -1,0 +1,12 @@
+remote: warning: File OpenOrbis/PS4Toolchain/bin/macos/PkgTool.Core is 70.48 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File OpenOrbis/PS4Toolchain/bin/linux/PkgTool.Core is 74.46 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File clang-local/usr/lib/llvm-14/lib/libclang-cpp.so.14 is 56.09 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: error: Trace: 53384fdeec59329a2dfa2a552f3c574a77def4216ad2c9eb4cfb4d30dab29dfd        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File toolchain-llvm-18.tar.gz is 151.34 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File clang-local/usr/lib/x86_64-linux-gnu/libLLVM-14.so.1 is 104.87 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+remote: pre-receive hook declined
+To https://github.com/JCWR-9-9-9/ps4ai.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/JCWR-9-9-9/ps4ai.git'

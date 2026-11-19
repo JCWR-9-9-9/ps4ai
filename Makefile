@@ -2,10 +2,10 @@
 # Uses OpenOrbis PS4 Toolchain natively
 
 # Project metadata
-TITLE       := Snake Game
+TITLE       := Neon Arena PS4
 VERSION     := 1.00
-TITLE_ID    := BREW00001
-CONTENT_ID  := IV0000-BREW00001_00-SNAKEGAME0000000
+TITLE_ID    := BREW00002
+CONTENT_ID  := IV0000-BREW00002_00-NEONARENA0000000
 
 # Toolchain path
 TOOLCHAIN   ?= $(OO_PS4_TOOLCHAIN)

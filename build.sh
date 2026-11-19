@@ -8,9 +8,9 @@ export OO_PS4_TOOLCHAIN="${OO_PS4_TOOLCHAIN:-$(pwd)/PS4Toolchain}"
 export LD_LIBRARY_PATH="$(pwd)/clang-local/usr/lib/x86_64-linux-gnu:$(pwd)/ssl-local/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-}"
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
-echo "Building PS4 Snake game package..."
+echo "Building PS4 Neon Arena package..."
 make pkg -j4
 
 echo ""
-echo "Build complete. Output: $(pwd)/IV0000-BREW00001_00-SNAKEGAME0000000.pkg"
+echo "Build complete. Output: $(pwd)/IV0000-BREW00002_00-NEONARENA0000000.pkg"
 
